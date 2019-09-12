@@ -1,7 +1,6 @@
 import React, { Component, useState }  from 'react';
 import {Automat } from './Automat'
 import {Desire} from "./Desire";
-import Speech from 'react-speech';
 
 let tasks = [
     {
