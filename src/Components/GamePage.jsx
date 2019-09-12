@@ -20,7 +20,7 @@ let tasks = [
     },
     {
         wanted: "MLEKO",
-        wantedImage: "mleko.jpg",
+        wantedImage: "mleko.jpg", 
         offer: ['KAFE', 'MLEKO', 'VODA', 'LIMO']
     },
     {
