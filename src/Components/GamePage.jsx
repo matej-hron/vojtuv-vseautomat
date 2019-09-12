@@ -35,9 +35,9 @@ let tasks = [
         offer: ['LETADLO', 'MOTORKA', 'KOLO', 'AUTO']
     },
     {
-        wanted: "TERENAK",
+        wanted: "TERÉŇÁK",
         wantedImage: "terenak.jpg",
-        offer: ['LETADLO', 'MOTORKA', 'KOLO', 'TERENAK']
+        offer: ['LETADLO', 'MOTORKA', 'KOLO', 'TERÉŇÁK']
     },
 ]
 
