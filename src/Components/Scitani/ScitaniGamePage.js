@@ -1,7 +1,7 @@
 import React, { Component, useState }  from 'react';
 import { Modal, Button } from 'react-materialize';
 import {getRandomInt} from "../../Common/randomNumber";
-import { TextInput } from 'react-materialize';
+import { TextInput, Checkbox } from 'react-materialize';
 
 export const ScitaniGamePage = () => {
     const [maxNumber, updateMaxNumber] = useState(40);
@@ -36,7 +36,18 @@ export const ScitaniGamePage = () => {
         updateGameOver(errorCount >= 3)
     }
 
-    const historyEntries = history.map((r, i) => <div key={i}>{r.a} + {r.b} = {r.answer} {r.correct ? 'OK' : '!!!'} </div>);
+
+
+    const historyEntries = history.map((r, i) =>
+        <div>
+            {
+
+                r.correct
+                    ? <Checkbox disabled value={`${r.a} + ${r.b} = ${r.answer}`} label={`${r.a} + ${r.b} = ${r.answer}`} checked/>
+                    : <Checkbox disabled value={`${r.a} + ${r.b} = ${r.answer}`} label={`${r.a} + ${r.b} = ${r.answer}`}/>
+
+            }</div>);
+
 
     return <>
         <div>
