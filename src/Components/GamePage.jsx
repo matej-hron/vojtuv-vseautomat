@@ -1,6 +1,7 @@
 import React, { Component, useState }  from 'react';
 import {Automat } from './Automat'
 import {Desire} from "./Desire";
+import { Badge } from 'react-materialize';
 import M from "materialize-css";
 let tasks = [
     {
@@ -82,16 +83,23 @@ export const GamePage = () => {
     return(
         <>
             {!gameOver ? (<>
-        <div>DOBŘE: {score}</div>
-        <div>ŠPATNĚ: {errors}</div>
+                <div style={{width: '100%', textAlign: 'left'}}>
+
+                    <Badge>
+                        body: {score}, Chyby: {errors}
+                    </Badge>
+
+
+                </div>
+        <div>
+            <Desire imagePath={wantedImage} />
+        </div>
 
         <div>
             <Automat name='vojta' offer={offer} onSelected={onSelected}/>
         </div><br/><div/>
-        <div>
-            <Desire imagePath={wantedImage} />
-        </div>
                 </>): <div>KONEC KÁMO</div>}
+
         </>
     );
 }
