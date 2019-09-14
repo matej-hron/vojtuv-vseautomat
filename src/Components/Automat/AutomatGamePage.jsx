@@ -2,6 +2,7 @@ import React, { Component, useState }  from 'react';
 import {Automat } from './Automat'
 import {Desire} from "./Desire";
 import { Badge } from 'react-materialize';
+import {getRandomInt} from "../../Common/randomNumber";
 import M from "materialize-css";
 let tasks = [
     {
@@ -46,12 +47,9 @@ let tasks = [
     },
 ]
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
 
 
-export const GamePage = () => {
+export const AutomatGamePage = () => {
     const [task, updateTask] = useState(tasks[0]);
     const [taskNo, updateTaskNo] = useState(1);
     const [gameOver, updateGameOver] = useState(false);

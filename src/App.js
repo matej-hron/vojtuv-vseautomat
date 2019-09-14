@@ -1,5 +1,6 @@
 import React from 'react';
-import  {GamePage} from './Components/GamePage'
+import  {AutomatGamePage} from './Components/Automat/AutomatGamePage'
+import  {ScitaniGamePage} from './Components/Scitani/ScitaniGamePage'
 import { Tabs, Tab } from 'react-materialize';
 
 import './App.css';
@@ -11,10 +12,10 @@ function App() {
       <header className="App-header">
           <Tabs className="tab-demo z-depth-1" >
               <Tab title="AUTOMAT">
-                  <GamePage/>
+                  <AutomatGamePage/>
               </Tab>
               <Tab title="SČÍTAČKA">
-                  TODO
+                  <ScitaniGamePage/>
               </Tab>
           </Tabs>
 
