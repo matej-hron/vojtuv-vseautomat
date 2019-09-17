@@ -1,6 +1,6 @@
 import React from 'react';
 import  {AutomatGamePage} from './Components/Automat/AutomatGamePage'
-import  {ScitaniGamePage} from './Components/Scitani/ScitaniGamePage'
+import  {AlgebraGamePage} from './Components/Scitani/AlgebraGamePage'
 import { Tabs, Tab } from 'react-materialize';
 
 import './App.css';
@@ -14,7 +14,7 @@ function App() {
                   <AutomatGamePage/>
               </Tab>
               <Tab title="SČÍTAČKA">
-                      <ScitaniGamePage
+                      <AlgebraGamePage
                           createExpression={r => `${r.a} + ${r.b} = ${r.answer}`}
                           createTaskExpression={(a, b) => `${a} + ${b}`}
                           evaluateAnswer={(a, b, answer) => a + b === answer}
@@ -23,7 +23,7 @@ function App() {
                          />
               </Tab>
               <Tab title="NÁSOBILKA">
-                  <ScitaniGamePage
+                  <AlgebraGamePage
                       createExpression={r => `${r.a} * ${r.b} = ${r.answer}`}
                       createTaskExpression={(a, b) => `${a} * ${b}`}
                       evaluateAnswer={(a, b, answer) => a * b === answer}

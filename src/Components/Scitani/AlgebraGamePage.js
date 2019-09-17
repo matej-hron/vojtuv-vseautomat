@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-materialize';
 import {getRandomInt} from "../../Common/randomNumber";
 import { TextInput, Checkbox } from 'react-materialize';
 
-export const ScitaniGamePage = ({createExpression, createTaskExpression, evaluateAnswer, maxA, maxB}) => {
+export const AlgebraGamePage = ({createExpression, createTaskExpression, evaluateAnswer, maxA, maxB}) => {
     const [history, updateHistory] = useState([])
     const [number, updateNumber] = useState();
     const [a, updateA] = useState(getRandomInt(maxA))
@@ -46,7 +46,7 @@ export const ScitaniGamePage = ({createExpression, createTaskExpression, evaluat
 
     return <>
         <div>
-            <h2>SČÍTÁNÍ</h2>
+            <h2>VYPOČÍTEJ</h2>
         </div>
         { historyEntries}
         <div>
