@@ -3,29 +3,26 @@ import { Modal, Button } from 'react-materialize';
 import {getRandomInt} from "../../Common/randomNumber";
 import { TextInput, Checkbox } from 'react-materialize';
 
-export const ScitaniGamePage = () => {
-    const [maxNumber, updateMaxNumber] = useState(40);
+export const ScitaniGamePage = ({createExpression, createTaskExpression, evaluateAnswer, maxA, maxB}) => {
     const [history, updateHistory] = useState([])
     const [number, updateNumber] = useState();
-    const [a, updateA] = useState(getRandomInt(maxNumber))
-    const [b, updateB] = useState(getRandomInt(maxNumber))
-
+    const [a, updateA] = useState(getRandomInt(maxA))
+    const [b, updateB] = useState(getRandomInt(maxB))
     const [gameOver, updateGameOver] = useState(false)
+
 
     const handleOnChange = e => {
         e.preventDefault();
         const answer = parseInt(number)
 
-        updateA(getRandomInt(maxNumber));
-        updateB(getRandomInt(maxNumber));
-
-        const correct = answer  === a + b;
+        updateA(getRandomInt(maxA));
+        updateB(getRandomInt(maxB));
 
         history.push({
             a,
             b,
             answer,
-            correct
+            correct: evaluateAnswer(a, b, answer)
         });
 
         updateNumber('');
@@ -37,14 +34,12 @@ export const ScitaniGamePage = () => {
     }
 
 
-
     const historyEntries = history.map((r, i) =>
         <div>
             {
-
                 r.correct
-                    ? <Checkbox disabled value={`${r.a} + ${r.b} = ${r.answer}`} label={`${r.a} + ${r.b} = ${r.answer}`} checked/>
-                    : <Checkbox disabled value={`${r.a} + ${r.b} = ${r.answer}`} label={`${r.a} + ${r.b} = ${r.answer}`}/>
+                    ? <Checkbox disabled value={createExpression(r)} label={createExpression(r)} checked/>
+                    : <Checkbox disabled value={createExpression(r)} label={createExpression(r)}/>
 
             }</div>);
 
@@ -60,7 +55,7 @@ export const ScitaniGamePage = () => {
                 : <form onSubmit={handleOnChange} style={{align: 'center'}}>
                     <TextInput
                         editable={!gameOver}
-                        label={`${a} + ${b}`}
+                        label={createTaskExpression(a, b)}
                         inline
                         value={number}
                         onChange={e => updateNumber(e.target.value)}

@@ -5,7 +5,6 @@ import { Tabs, Tab } from 'react-materialize';
 
 import './App.css';
 
-
 function App() {
   return (
     <div className="App">
@@ -15,8 +14,24 @@ function App() {
                   <AutomatGamePage/>
               </Tab>
               <Tab title="SČÍTAČKA">
-                  <ScitaniGamePage/>
+                      <ScitaniGamePage
+                          createExpression={r => `${r.a} + ${r.b} = ${r.answer}`}
+                          createTaskExpression={(a, b) => `${a} + ${b}`}
+                          evaluateAnswer={(a, b, answer) => a + b === answer}
+                          maxA={50}
+                          maxB={50}
+                         />
               </Tab>
+              <Tab title="NÁSOBILKA">
+                  <ScitaniGamePage
+                      createExpression={r => `${r.a} * ${r.b} = ${r.answer}`}
+                      createTaskExpression={(a, b) => `${a} * ${b}`}
+                      evaluateAnswer={(a, b, answer) => a * b === answer}
+                      maxA={10}
+                      maxB={10}
+                  />
+              </Tab>
+
           </Tabs>
 
 
